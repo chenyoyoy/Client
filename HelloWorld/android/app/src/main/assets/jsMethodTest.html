@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>Android js方法测试</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .btn {
+            display: flex;
+            width: 100%;
+            background-color: #5d9e20;
+            align-items: center;
+            justify-content: center;
+            height: 100px;
+        }
+
+        .hr_style {
+            background-color: white;
+            height: 10px;
+            border: none
+        }
+
+        .result {
+            background-color: #8A8A8A;
+            min-height: 100px;
+            font-size: 25px;
+            word-break: break-all
+        }
+    </style>
+</head>
+<body>
+<input id="input" type="text" style="height: 200px;width: 500px" autofocus="autofocus">
+
+<button id="click"  style="height: 100px;width: 500px" onclick="foucus" >dddddd</button>
+<section id="btn_div">
+
+</section>
+<p id="result" class="result">callback收到结果</p>
+<script type="text/javascript">
+
+    document.getElementById("input").focus();
+    var foucus=function(){
+        document.getElementById("input").focus();
+    };
+
+    setTimeout(function () {
+        document.getElementById('result').innerHTML = '3000000';
+        document.getElementById("input").focus();
+    },3000);
+
+    setTimeout(function () {
+        document.getElementsByName("body").click();
+    },1000);
+
+    var calll = function (result) {
+        document.getElementById('result').innerHTML = result;
+    };
+
+    var platform = {
+        callback: function (callbackMethod, code, json) {
+            eval(callbackMethod + "('" + JSON.stringify(json) + "')");
+        }
+    };
+    $$ = {
+        platformAdapter: platform
+    };
+
+    /**
+     *  data  入参的data数据 jsonObject
+     *  callback 回调函数名  String
+     *  method   执行方法名  String
+     *  viewID   对应标签名 String
+     * @param option
+     */
+    function setOnClick(option) {
+        var fun = function () {
+            var jsonn = {
+                data: option.data,
+                callback: option.callback
+            };
+
+            var result = "call://" + option.method + "(\"" + JSON.stringify(jsonn) + "\")";
+            prompt(result);
+        };
+
+        document.getElementById(option.viewId).onclick = fun;
+    }
+
+    $.ajax({
+        type: "GET",
+        url: "json/btnList.json",
+        dataType: "json",
+        success: function (result) {
+            for (var i = 0; i < result.list.length; i++) {
+                var btn = document.createElement("p");
+                btn.setAttribute("class", "btn");
+                btn.setAttribute("id", result.list[i].viewId);
+                btn.innerHTML = result.list[i].btn_text;
+                document.getElementById("btn_div").appendChild(btn);
+                setOnClick(result.list[i]);
+
+                var line = document.createElement("hr");
+                line.setAttribute("class", "hr_style");
+                document.getElementById("btn_div").appendChild(line);
+            }
+        }
+    });
+</script>
+</body>
+</html>
