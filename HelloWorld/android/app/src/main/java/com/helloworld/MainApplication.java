@@ -9,7 +9,6 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.helloworld.react.pack.AndroidPackage;
-import com.brentvatne.react.ReactVideoPackage;
 
 import java.util.Arrays;
 import java.util.List;
