@@ -1,11 +1,12 @@
 import React, {Component} from 'react' ;
 import {View, Text, SectionList, StyleSheet} from 'react-native';
-
+import HeaderView from "../view/HeaderView";
 export default class SectionFlatListTest extends Component {
 
     render() {
         return (
             <View style={stylee.container}>
+                <HeaderView  />
                 <SectionList
                     sections={[
                         {title: 'D', data: ['Devin']},

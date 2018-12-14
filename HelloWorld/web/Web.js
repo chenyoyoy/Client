@@ -15,15 +15,7 @@ export default class Web extends React.Component {
         const url = this.props.navigation.state.params.url;
         return <View style={{flex: 1}}>
 
-            <StatusBar
-                animated={true}
-                hidden={false}
-                translucent={true}
-                backgroundColor={'#00000000'}
-                barStyle={'dark-content'}
-            />
-
-            <HeaderView/>
+            <HeaderView navigation={this.props.navigation}/>
 
             <WebView style={{flex: 1}} source={{uri: url}}/>
         </View>

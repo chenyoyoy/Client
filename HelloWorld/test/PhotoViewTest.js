@@ -6,12 +6,12 @@
 import React, {Component} from 'react'
 import {View} from 'react-native'
 import PhotoView from '../natiive/component/PhotoView'
-
-
+import HeaderView from "../view/HeaderView";
 export default class PhotoViewTest extends Component {
     render() {
         return (
             <View style={{flex: 1}}>
+                <HeaderView  />
                 <PhotoView style={{flex: 1}}
                            imgSource='http://10.94.30.120:8887/photo.jpg'/>
             </View>

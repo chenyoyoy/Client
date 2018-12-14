@@ -3,16 +3,15 @@
  */
 
 
-import React from 'react'
-import {View, Text, ScrollView, Image, TouchableOpacity} from 'react-native'
-import HeaderView from "./view/HeaderView";
-
-export  default class TabMain extends React.Component {
+import React, {Component}from 'react'
+import {View, Text, ScrollView, Image} from 'react-native'
+import HeaderComponent from "./view/HeaderComponent";
+import StyledTouchableOpacity from "./view/StyledTouchableOpacity";
+export  default class TabMain extends Component {
 
     render() {
         return (
-            <View>
-                <HeaderView/>
+            <HeaderComponent>
                 <View >
                     <View style={{
                         width: 360,
@@ -30,14 +29,14 @@ export  default class TabMain extends React.Component {
 
                 </View>
 
-            </View>
+            </HeaderComponent>
         )
     }
 
     getItem(index) {
         let item =
             <View key={"key" + index}>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('detail')}>
+                <StyledTouchableOpacity onPress={() => this.props.navigation.navigate('detail')}>
                     <View style={{
                         alignItems: 'center',
                         height: 40,
@@ -56,7 +55,7 @@ export  default class TabMain extends React.Component {
                                    resizeMode='contain'></Image>
                         </View>
                     </View>
-                </TouchableOpacity>
+                </StyledTouchableOpacity>
                 <View style={{backgroundColor: 'white', height: 2}}/>
             </View>;
 

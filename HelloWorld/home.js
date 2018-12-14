@@ -55,27 +55,20 @@ export  default  class HomeScreen extends React.Component {
                                 this.calAlpha(e)
                                 console.log("scroll:" + e.toString())
                             }}>
-                    <StatusBar
-                        animated={true}
-                        hidden={false}
-                        translucent={true}
-                        backgroundColor={'#00000000'}
-                        barStyle={'light-content'}
-                    />
                     <View style={{height: 150}}>
                         <Swiper horizontal={true} showButtons={false} paginationStyle={{bottom: 10}}>
-                            <TouchableOpacity onPress={this.onBannerClick.bind(this)}>
+                            <TouchableOpacity onPress={this.onBannerClick.bind(this)} activeOpacity={0.7}>
                                 <Image source={require('./image/banner_image.jpg')} style={stlye.image}
                                 />
                             </TouchableOpacity>
 
-                            <TouchableOpacity onPress={this.onBannerClick.bind(this)}>
+                            <TouchableOpacity onPress={this.onBannerClick.bind(this)} activeOpacity={0.7}>
 
                                 <Image source={require('./image/banner_image.jpg')} style={stlye.image}
                                 />
                             </TouchableOpacity>
 
-                            <TouchableOpacity onPress={this.onBannerClick.bind(this)}>
+                            <TouchableOpacity onPress={this.onBannerClick.bind(this)} activeOpacity={0.7}>
 
                                 <Image source={require('./image/banner_image.jpg')} style={stlye.image}
                                 />
@@ -111,7 +104,7 @@ export  default  class HomeScreen extends React.Component {
                     width: 360,
                     opacity: this.state.headAlpha,
                     backgroundColor: 'black'
-                }}/>
+                }} showBack="none"/>
             </View>
         );
     }

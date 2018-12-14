@@ -29,7 +29,7 @@ const bottomNav = createBottomTabNavigator({
                 source={focused ? require('../image/amt-taobao.png') : require('../image/amt-zhima.png')}>
             </Image>)
         }
-    }
+    },
 });
 
 

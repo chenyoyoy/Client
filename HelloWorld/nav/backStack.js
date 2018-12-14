@@ -23,24 +23,45 @@ const stackNav = createStackNavigator({
         }
     },
     detail: {
-        screen: detail
+        screen: detail,
+        navigationOptions: {
+            header: null,
+        }
     }, mine: {
-        screen: mine
+        screen: mine,
+        navigationOptions: {
+            header: null,
+        }
     }, Test: {
-        screen: Test
+        screen: Test,
+        navigationOptions: {
+            header: null,
+        }
     }, web: {
         screen: web,
         navigationOptions: {
             header: null,
         }
     }, VideoTest: {
-        screen: VideoTest
+        screen: VideoTest,
+        navigationOptions: {
+            header: null,
+        }
     }, PhotoTest: {
-        screen: PhotoViewTest
+        screen: PhotoViewTest,
+        navigationOptions: {
+            header: null,
+        }
     }, FlatListTest: {
-        screen: FlatListTest
+        screen: FlatListTest,
+        navigationOptions: {
+            header: null,
+        }
     }, SectionFlatListTest: {
-        screen: SectionFlatListTest
+        screen: SectionFlatListTest,
+        navigationOptions: {
+            header: null,
+        }
     }
 }, {});
 

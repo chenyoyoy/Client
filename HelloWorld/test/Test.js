@@ -7,6 +7,7 @@ import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native'
 import Intent from '../natiive/module/Intent'
 import FlatListTest from "./FlatListTest";
+import HeaderView from "../view/HeaderView";
 
 export default class TestPage extends React.Component {
 
@@ -16,6 +17,8 @@ export default class TestPage extends React.Component {
 
     render() {
         return (<View>
+            <HeaderView />
+
             <TouchableOpacity onPress={this.toSetting.bind(this)}>
                 <Text style={styles.item}>
                     跳转setting

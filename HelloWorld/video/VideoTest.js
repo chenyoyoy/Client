@@ -15,14 +15,6 @@ export default class Web extends React.Component {
     render() {
         return <View style={{flex: 1}}>
 
-            <StatusBar
-                animated={true}
-                hidden={false}
-                translucent={true}
-                backgroundColor={'#00000000'}
-                barStyle={'dark-content'}
-            />
-
             <HeaderView/>
 
             <Video
