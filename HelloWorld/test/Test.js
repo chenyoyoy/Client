@@ -50,6 +50,20 @@ export default class TestPage extends React.Component {
                     toSectionFlatTest
                 </Text>
             </TouchableOpacity>
+
+            <View style={{height: 2, backgroundColor: 'white'}}/>
+            <TouchableOpacity onPress={this.toActivityIndicatorTest.bind(this)}>
+                <Text style={styles.item}>
+                    toActivityIndicator
+                </Text>
+            </TouchableOpacity>
+
+            <View style={{height: 2, backgroundColor: 'white'}}/>
+            <TouchableOpacity onPress={this.toButtonTest.bind(this)}>
+                <Text style={styles.item}>
+                    buttonTest
+                </Text>
+            </TouchableOpacity>
         </View>);
     }
 
@@ -78,6 +92,15 @@ export default class TestPage extends React.Component {
 
     toSectionFlatTest() {
         this.props.navigation.navigate('SectionFlatListTest');
+    }
+
+
+    toActivityIndicatorTest() {
+        this.props.navigation.navigate('ActivityIndicatorTest');
+    }
+
+    toButtonTest() {
+        this.props.navigation.navigate('ButtonTest');
     }
 };
 

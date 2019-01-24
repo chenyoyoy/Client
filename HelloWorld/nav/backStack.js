@@ -7,6 +7,8 @@ import {createStackNavigator} from 'react-navigation';
 import detail from '../Details'
 import mine from '../mine'
 import Test from '../test/Test'
+import ActivityIndicatorTest from '../test/ActivityIndicatorTest'
+import ButtonTest from '../test/ButtonTest'
 import web from '../web/Web'
 import PhotoViewTest from '../test/PhotoViewTest'
 import FlatListTest from '../test/FlatListTest'
@@ -62,7 +64,21 @@ const stackNav = createStackNavigator({
         navigationOptions: {
             header: null,
         }
+    },
+    ActivityIndicatorTest: {
+        screen: ActivityIndicatorTest,
+        navigationOptions: {
+            header: null,
+        }
+    },
+    ButtonTest: {
+        screen: ButtonTest,
+        navigationOptions: {
+            header: null,
+        }
     }
-}, {});
+}, {
+
+});
 
 export default stackNav;
