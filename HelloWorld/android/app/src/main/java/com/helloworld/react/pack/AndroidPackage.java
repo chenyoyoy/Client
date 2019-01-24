@@ -19,7 +19,7 @@ public class AndroidPackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> list = new ArrayList<>();
-        list.add(new ModuleIntent(reactContext));
+        list.add(ModuleIntent.getInstance(reactContext));
         return list;
     }
 

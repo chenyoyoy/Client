@@ -8,8 +8,9 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native'
 import Intent from '../natiive/module/Intent'
 import FlatListTest from "./FlatListTest";
 import HeaderView from "../view/HeaderView";
+import NativeEventComponent from "../view/NativeEventComponent";
 
-export default class TestPage extends React.Component {
+export default class TestPage extends NativeEventComponent {
 
     constructor(props) {
         super(props);
@@ -17,7 +18,7 @@ export default class TestPage extends React.Component {
 
     render() {
         return (<View>
-            <HeaderView />
+            <HeaderView/>
 
             <TouchableOpacity onPress={this.toSetting.bind(this)}>
                 <Text style={styles.item}>
@@ -69,12 +70,12 @@ export default class TestPage extends React.Component {
 
     toSetting() {
         console.log("startActivity");
-        Intent.startActivity({
+        this.startActivityForResult({
             cls: {
                 packageName: "com.helloworld",
                 clsName: "com.helloworld.nattive.setting.SettingActivity"
             }, extra: {}
-        });
+        },100);
         console.log("startActivity");
     }
 
