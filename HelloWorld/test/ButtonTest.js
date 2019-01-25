@@ -1,19 +1,28 @@
 /**
  * Created by chenyou on 2019/1/24.
  */
-import React,{Component} from 'react'
-import {View,Button,ToastAndroid } from 'react-native'
+import React, {Component} from 'react'
+import {View, Button, ToastAndroid, Alert} from 'react-native'
+import HeaderComponent from "../view/HeaderComponent";
 
-export default class ButtonTest extends Component{
+export default class ButtonTest extends Component {
 
-    render(){
-       return <View style={{flex:1,flexDirection:'column'}}>
-            <Button title="hello" onPress={this.sayPress.bind(this)}
-            style={{marginTop:10}}/>
-        </View>
+    render() {
+        return (
+            <HeaderComponent style={{flex: 1, flexDirection: 'column'}}>
+                <View style={{flex: 1, flexDirection: 'column'}}>
+                    <View style={{width:150,height:80,backgroundColor:'#001ade'}}>
+                        <Button title="hello"
+                                color="#ff8144"
+                                onPress={this.sayPress.bind(this)}
+                        />
+                    </View>
+                </View>
+            </HeaderComponent>
+        )
     }
 
-    sayPress(){
-        ToastAndroid.show("onpress",ToastAndroid.SHORT);
+    sayPress() {
+        Alert.alert("button press")
     }
 }

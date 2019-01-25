@@ -5,9 +5,9 @@ import React, {Component} from 'react'
 import HeaderView from './HeaderView'
 import {View} from 'react-native'
 import Intent from '../natiive/module/Intent'
+import BaseComponent from "./BaseComponent";
 
-export default class NativeEventComponent extends Component {
-
+export default class NativeEventComponent extends BaseComponent {
 
     constructor(props) {
         super(props);
@@ -31,6 +31,11 @@ export default class NativeEventComponent extends Component {
     }
 
     componentWillUnmount() {
+        super.componentWillUnmount();
         Intent.removeIntentCallback(this.onActivityResult)
+    }
+
+    getTag(){
+        return "NativeEventComponent" ;
     }
 }

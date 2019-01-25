@@ -12,13 +12,25 @@ import NativeEventComponent from "../view/NativeEventComponent";
 
 export default class TestPage extends NativeEventComponent {
 
+
+    static defaultProps = {
+        original:'original'
+    };
+
     constructor(props) {
         super(props);
+        this.state={
+            title:"原始标题"
+        };
+       this.timer= setTimeout(()=>{
+            this.setState({title:'测试界面哟'}) ;
+        },10000)
     }
 
     render() {
+        super.render();
         return (<View>
-            <HeaderView/>
+            <HeaderView title={this.state.title} kkk={}/>
 
             <TouchableOpacity onPress={this.toSetting.bind(this)}>
                 <Text style={styles.item}>
@@ -68,6 +80,18 @@ export default class TestPage extends NativeEventComponent {
         </View>);
     }
 
+    componentWillReceiveProps(){
+        super.componentWillReceiveProps();
+    }
+
+    shouldComponentUpdate(){
+      return  super.shouldComponentUpdate();
+    }
+
+    componentWillUnmount(){
+        clearTimeout(this.timer)
+    }
+
     toSetting() {
         console.log("startActivity");
         this.startActivityForResult({
@@ -75,7 +99,7 @@ export default class TestPage extends NativeEventComponent {
                 packageName: "com.helloworld",
                 clsName: "com.helloworld.nattive.setting.SettingActivity"
             }, extra: {}
-        },100);
+        }, 100);
         console.log("startActivity");
     }
 
@@ -102,6 +126,10 @@ export default class TestPage extends NativeEventComponent {
 
     toButtonTest() {
         this.props.navigation.navigate('ButtonTest');
+    }
+
+    getTag() {
+        return "TestPage";
     }
 };
 

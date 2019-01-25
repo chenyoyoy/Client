@@ -4,15 +4,19 @@
 import React from 'react'
 import {View, Text, Image, StyleSheet, StatusBar, TouchableOpacity} from 'react-native'
 import  PropTypes from 'prop-types'
+import BaseComponent from "./BaseComponent";
 
-export default class HeaderView extends React.Component {
+export default class HeaderView extends BaseComponent {
 
-    static defaultProps = {};
+    static defaultProps = {
+        title:'标题'
+    };
 
     static propTypes = {
         showBack: PropTypes.string,
+        title:PropTypes.string,
+        kkk:PropTypes.bool
     };
-
 
     constructor(props) {
         super(props);
@@ -46,12 +50,21 @@ export default class HeaderView extends React.Component {
                                source={require('../image/icon_back_left.png')} resizeMode="contain"/>
                     </TouchableOpacity>
                     <View style={style.center}>
-                        <Text style={style.title}>标题</Text>
+                        <Text style={style.title}>{this.props.title}</Text>
                     </View>
                     <Image style={style.rightIcon} source={require('../image/amt-zhima.png')} resizeMode="contain"/>
                 </View>
             </View>
         )
+    }
+
+    componentWillReceiveProps(nextProps){
+        console.log("nextProps"+nextProps.title) ;
+    }
+
+
+    getTag(){
+        return "HeaderView" ;
     }
 }
 
